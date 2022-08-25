@@ -33,7 +33,7 @@ type mape struct {
 func Json(name string) string {
 	file, err := ioutil.ReadFile("bilgi.json")
 	if err != nil {
-		return "Girilen isme ait id bulunamadı!"
+		return "Bulunamadı!"
 	}
 	var data map[string]string = make(map[string]string)
 	if err := json.Unmarshal(file, &data); err != nil {
@@ -41,7 +41,7 @@ func Json(name string) string {
 	}
 	result, ok := data[name]
 	if !ok {
-		return "Girilen isme ait id bulunamadı!"
+		return "Bulunamadı!"
 	}
 	return result
 }
